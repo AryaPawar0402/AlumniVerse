@@ -1,0 +1,101 @@
+.dashboard-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0a193c, #1e3c72, #2a5298); /* Restored blue gradient */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Restored bluish glassy overlay */
+.dashboard-overlay {
+  background: rgba(10, 25, 60, 0.65);
+  backdrop-filter: blur(14px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Content wrapper */
+.dashboard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Horizontal Card */
+.dashboard-card.horizontal-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  border-radius: 25px;
+  padding: 3rem 5rem;
+  width: 75%;
+  max-width: 950px;
+  text-align: center;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 20px rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* Heading & Paragraph */
+.dashboard-card.horizontal-card h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-card.horizontal-card p {
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Buttons */
+.dashboard-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-buttons button {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #3b82f6; /* Soft blue buttons */
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-buttons button:hover {
+  background-color: #60a5fa;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-card.horizontal-card {
+    width: 90%;
+    padding: 2rem 1.5rem;
+  }
+
+  .dashboard-card.horizontal-card h1 {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-buttons button {
+    font-size: 0.9rem;
+  }
+}

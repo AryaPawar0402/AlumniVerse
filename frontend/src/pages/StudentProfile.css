@@ -1,0 +1,333 @@
+/* 🌌 Background */
+.profile-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0a193c, #1e3c72, #2a5298);
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 70px; /* ✅ Push content below navbar */
+}
+
+/* ✅ Custom Scrollbar (Page) */
+.profile-container::-webkit-scrollbar {
+  width: 8px;
+}
+.profile-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+.profile-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #1e40af);
+  border-radius: 10px;
+}
+.profile-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+}
+
+/* ✨ Overlay */
+.profile-overlay {
+  background: rgba(10, 25, 60, 0.65);
+  backdrop-filter: blur(12px);
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 10px 40px;
+}
+
+/* 💎 Glass Card */
+.profile-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4),
+              inset 0 0 15px rgba(255, 255, 255, 0.1);
+  max-width: 850px;
+  width: 95%;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+  transform: scale(1);
+  position: relative;
+  padding-bottom: 40px;
+}
+
+/* ✅ Custom Scrollbar (Inside Card) */
+.profile-card::-webkit-scrollbar {
+  width: 6px;
+}
+.profile-card::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.6);
+  border-radius: 8px;
+}
+.profile-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+/* 💙 Header Section */
+.profile-header {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 1), rgba(37, 99, 235, 1));
+  width: 100%;
+  height: 130px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  gap: 15px;
+}
+
+/* Title */
+.profile-title-section {
+  flex: 1;
+  text-align: center;
+}
+.profile-title-section h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Avatar */
+.profile-avatar-wrapper {
+  position: relative;
+  width: 85px;
+  height: 85px;
+}
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  font-weight: 400;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 📸 Camera Overlay */
+.change-photo-overlay {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: rgba(59, 130, 246, 0.9);
+  color: #fff;
+  padding: 5px 6px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: translate(25%, 25%);
+}
+
+/* ❌ Remove Profile Button */
+.remove-profile {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ✏️ Edit Button (FIXED) */
+.edit-profile-btn {
+  position: absolute;
+  top: 10px;               /* ✅ placed neatly inside the card */
+  right: 15px;             /* ✅ aligned within border */
+  z-index: 10;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+.edit-profile-btn:hover {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* 📑 Profile Content */
+.profile-content {
+  padding: 30px 25px;
+  margin-top: -20px;
+}
+
+/* Info Sections */
+.profile-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+.info-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.info-section h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 14px 0;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 6px;
+}
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 6px;
+}
+.info-label {
+  font-weight: 600;
+  color: #a0e5ff;
+  min-width: 100px;
+}
+.info-value {
+  color: #fff;
+  flex: 1;
+}
+
+/* Inputs */
+.info-value input,
+.info-value textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.95rem;
+}
+.info-value input:focus,
+.info-value textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.15);
+}
+.info-value textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* ✅ Save/Cancel Buttons */
+.profile-actions-bottom {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.save-btn {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.save-btn:hover {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  transform: scale(1.05);
+}
+.cancel-btn {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cancel-btn:hover {
+  background: linear-gradient(135deg, #9ca3af, #d1d5db);
+  transform: scale(1.05);
+}
+
+/* 🧭 Loading and Error States */
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 40px;
+  color: white;
+}
+.error-state button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .profile-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+  .profile-avatar-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  .profile-title-section h1 {
+    font-size: 1.6rem;
+  }
+  .profile-container {
+    padding-top: 60px;
+  }
+
+  /* ✅ Adjust Edit Button for mobile */
+  .edit-profile-btn {
+    top: 8px;
+    right: 10px;
+    padding: 7px 16px;
+    font-size: 0.9rem;
+  }
+}
